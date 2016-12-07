@@ -1,0 +1,167 @@
+/**
+ * Parking Lot containing parking spots 
+ * 
+ * @author Gurdev Singh 
+ * @version 1.0 25-08-2016
+ */
+
+import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;
+public class CarPark
+{
+    // instance variables - replace the example below with your own
+    private ArrayList<Spot> spots;
+    
+    
+    /**
+     * defines the spot collection object
+     */
+    public CarPark()
+    {
+        // initialise instance variables
+        spots = new ArrayList<Spot>();
+    }
+
+    /**
+     * Adds parking spot to the collection 
+     * 
+     * @param  aSpot   parking spot object
+     * 
+     */
+    public void addParkingSpot(Spot aSpot)
+    {
+        // put your code here
+        spots.add(aSpot);
+    }
+    
+    /**
+     * Removes parking spot from the collection 
+     * 
+     * @param  id   id of the parkin spot to be removed
+     * @returns true if car is removed from the collection
+     */
+    public boolean removeParkingSpot(String id)
+    {
+        for(Spot aSpot : spots)
+        {
+            if(aSpot.getSpotId().equalsIgnoreCase(id) && aSpot.getIsOccupied()==false)
+            {
+                spots.remove(aSpot);
+                return true;
+            }
+            
+        }
+        return false;
+    }
+    
+    /**
+     * Gives all the un-occupied parking spots 
+     * 
+     * @returns collection of un-occupied spots
+     * 
+     */
+    public ArrayList<Spot> getAvailableSpots()
+    {
+        ArrayList<Spot> sendSpots = new ArrayList<Spot>();
+        for(Spot aSpot : spots)
+        {
+            if(!aSpot.getIsOccupied())
+                {sendSpots.add(aSpot);}
+        }
+        return sendSpots;
+    }
+    
+    /**
+     * Gives the spot where the car with specified registration number is parked 
+     * 
+     * @param  regNum registration number of the car
+     * @returns spot containing the car with registration number specified
+     */
+    public Spot findCar(String regNum)
+    {
+        Spot foundSpot = new Spot();
+        for(Spot aSpot : spots)
+        {
+            
+            if(aSpot.getCar()!=null && aSpot.getCar().getRegistrationNumber().equals(regNum) && aSpot.getIsOccupied())
+            {
+                foundSpot = aSpot;
+                break;
+            }    
+        }
+        return foundSpot;
+    }
+    
+    /**
+     * Finds the spot with the specified spotId
+     * 
+     * @param  Id the Id of the spot specified
+     * @returns the spot having the spot id specified
+     */
+    public Spot findSpot(String Id)
+    {
+        Spot foundSpot = new Spot("-1",-1);
+        for(Spot aSpot : spots)
+        {
+            if(aSpot.getSpotId().equals(Id))
+            {
+                foundSpot = aSpot;
+                break;
+            }    
+        }
+        return foundSpot;
+    }
+    
+    /**
+     * Gets the occupied spots
+     * 
+     * @returns occupied spots
+     * 
+     */
+    public ArrayList<Spot> getOccupiedSpots()
+    {
+        ArrayList<Spot> occupiedSpots = new ArrayList<Spot>();
+        for(Spot aSpot : spots)
+        {
+            if(aSpot.getIsOccupied())
+                {occupiedSpots.add(aSpot);}
+        }
+        return occupiedSpots;
+    }
+    
+    /**
+     * Gets all the spots in the Parking lot 
+     * 
+     * @returns collection object containing all the parking spots
+     * 
+     */
+    public ArrayList<Spot> getAllSpots()
+    {
+        return spots;
+    }
+    
+    
+    /**
+     * Gets details of all the parking spots in the collection object 
+     * 
+     * @returns collection object details
+     * 
+     */
+    /*public String toString()
+    {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+        String collectionDetails = (String.format("%-20s%-20s%-20s%-20s%-20s%-20s","Spot Id","Arrival Time","Arrival Date","Time In","Registration#", "Fee/Hr"));
+        for(Spot aSpot : spots)
+        {
+            if(aSpot.getCar()!=null && aSpot.getIsOccupied())
+                collectionDetails += (String.format("%-20s%-20s%-20s%-20s%-20s%-20s",aSpot.getSpotId(),aSpot.getArrivalTime().format(formatter),aSpot.getArrivalTime().getMonth().toString().substring(0, 1).toUpperCase() + aSpot.getArrivalTime().getMonth().toString().substring(1).toLowerCase()+" "+aSpot.getArrivalTime().getDayOfMonth()+", "+aSpot.getArrivalTime().getYear(),aSpot.getCar().getTimeIn()+" min.",aSpot.getCar().getRegistrationNumber(),"$"+aSpot.getParkingCharges()));
+            else
+               collectionDetails += IOSupport.printIt(String.format("%-20s%-20s%-20s%-20s%-20s%-20s",aSpot.getSpotId(),"--","--","--","--","$"+aSpot.getParkingCharges()));
+        }
+        return collectionDetails;
+    }
+    */
+    
+    
+}
+

@@ -1,0 +1,218 @@
+/**
+ * Spot for a parking lot of type VehiclePark
+ * 
+ * @author Gurdev Singh
+ * @version 1.0 29-08-2016
+ */
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+class Spot 
+{
+    // instance variables - replace the example below with your own
+    private String id;
+    private Vehicle vehicleInSpot;
+    private double hourlyRate;
+    private boolean isOccupied;
+    private LocalDateTime arrivalTime;
+  
+    /**
+     *Constructor 
+     *@param sId spot id of parking spot
+     *@param aHourlyRate rate of parking a vehicle per/hour
+     */
+    public Spot(String sId, double aHourlyRate)
+    {
+        // initialise instance variables
+        id = sId;
+        hourlyRate = aHourlyRate;
+        isOccupied = false;
+        //arrivalTime = LocalDateTime.now();
+    }
+    
+    /**
+     * Constructor for creating spots after retrieving from file
+     * @param fileData the actual spots data retrieved from the file 
+     * 
+     */
+    public Spot(String fileData)
+    {
+        try
+        
+        {
+            String[] temp = fileData.split(",");
+            String tid = temp[0].trim();
+            double tHourlyRate = Double.parseDouble(temp[1].trim());
+            boolean tIsOccupied = Boolean.valueOf(temp[2].trim());
+            if(!temp[3].trim().equals("-"))
+            {
+                LocalDateTime tArrivalTime = LocalDateTime.parse(temp[3].trim());
+                arrivalTime = tArrivalTime;
+            }    
+            String type = temp[4].trim();
+        
+        
+            id = tid;
+            hourlyRate = tHourlyRate;
+            isOccupied = tIsOccupied;
+        
+        
+            switch(type)
+            {
+                case "C":
+                {
+                    Vehicle vehicle = new Car(fileData);
+                    vehicleInSpot = vehicle;
+                    break;
+                }
+                case "B":
+                {
+                   Vehicle vehicle = new Bicycle(fileData,"");
+                   vehicleInSpot = vehicle;
+                   break;
+                }
+                default:
+                {
+                   
+                }
+            
+            }
+        }
+        catch(Exception c)
+        {
+            IOSupport.printIt("Error: Corrupt File!");
+        }
+    }    
+    
+
+    /**
+     * Assigns a vehicle object to vehicleInSpot 
+     * 
+     * @param  aVehicle   Vehicle object to be assigned to the parking spot
+     * 
+     */
+    public void addVehicle(Vehicle aVehicle)
+    {
+        vehicleInSpot = aVehicle;
+        isOccupied = true;
+        arrivalTime = LocalDateTime.now();
+    }
+    
+    /**
+     * Gives the spot id of the parking spot
+     * 
+     * @return     spot id 
+     */
+    public String getSpotId()
+    {
+        return id;
+    }
+    
+    
+    /**
+     * deallocates the vehicle object from the parking spot
+     * 
+     * @return     the vehicle removed from the spot
+     */
+    public Vehicle removeVehicle()
+    {
+        isOccupied = false;
+        return vehicleInSpot;
+    }
+    
+    
+    /**
+     * Gives the reference to the vehicle object in the parking spot
+     * 
+     * @return     vehicle in spot
+     */
+    public Vehicle getVehicle()
+    {
+            return vehicleInSpot;
+    }
+    
+    
+    /**
+     * Gives the parking charges of the current spot
+     * 
+     * @return     hourly rate
+     */
+    public double getParkingCharges()
+    {
+        return hourlyRate;
+    }
+    
+    
+    /**
+     * Tells if the parking spot is occupied
+     * 
+     * @return     true if parking spot is occupied, else false
+     */
+    public boolean getIsOccupied()
+    {
+        return isOccupied;
+    }
+    
+    
+    /**
+     * Gives the time of arrival of a vehicle to the parking spot
+     * 
+     * @return     arrival time of vehicle in a parking spot
+     */
+    public LocalDateTime getArrivalTime()
+    {
+        return arrivalTime;
+    }
+    
+    /**
+     * Saves the spot data to a Arraylist of type String, used by writeAllSpots() in vehicle class  
+     * @param saveToMe collects all the spot data
+     */
+    public void saveSpot(ArrayList<String>  saveToMe)
+    {
+      saveToMe.add(id);
+      saveToMe.add(hourlyRate+"");
+      saveToMe.add(isOccupied+"");
+      if(isOccupied)
+      {
+          
+          saveToMe.add(arrivalTime+"");
+          saveToMe.add((vehicleInSpot instanceof Car)?"C":"B");
+          saveToMe.add(vehicleInSpot.getOwner());
+          saveToMe.add(vehicleInSpot.getArrivalTime()+"");
+          saveToMe.add(vehicleInSpot.getChargedRate()+"");
+          saveToMe.add((vehicleInSpot instanceof Car)?((Car)vehicleInSpot).getRegistrationNumber():"-");
+      }
+      else
+      {
+          saveToMe.add("-");
+          saveToMe.add("-");
+          saveToMe.add("-");
+          saveToMe.add("-");
+          saveToMe.add("-");
+          saveToMe.add("-");
+      }
+    }
+    
+    /**
+     * Gives the details of the spot
+     * 
+     * @return     spot details
+     */
+    public String toString()
+    {
+        if(vehicleInSpot != null)
+        {
+            //checking if it is a car
+          if(vehicleInSpot.getClass().isInstance(Car.class))
+          { 
+            return "Spot Id : "+id+"\nVehicle In Spot : "+((Car)vehicleInSpot).getRegistrationNumber()+"\nhourly rate : $"+hourlyRate+"\nOccupied : "+(isOccupied?"Yes":"No")+"\nArrivalTime(atSpot) : "+arrivalTime+"\n";
+          }
+        }
+         
+        
+            return"Spot Id : "+id+"\nHourly rate : "+hourlyRate+"\nOccupied? : " + (isOccupied?"Yes\n":"No\n");
+        
+            //return "";
+    }
+    
+}

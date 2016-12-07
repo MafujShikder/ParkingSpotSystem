@@ -1,0 +1,43 @@
+Class documentation
+<---- javadoc command: ---->
+C:\Program Files\Java\jdk1.8.0_101\bin\javadoc.exe
+-author
+-version
+-nodeprecated
+-package
+-noindex
+-notree
+-nohelp
+-nonavbar
+-source
+1.8
+-classpath
+C:\Program Files (x86)\BlueJ\lib\bluejcore.jar;C:\Program Files (x86)\BlueJ\lib\junit-4.8.2.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-core.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-device.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-gpio-extension.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-service.jar;F:\SEM1\OOP\PER\PSStoinh
+-d
+F:\SEM1\OOP\PER\PSStoinh\doc
+-encoding
+UTF-8
+-charset
+UTF-8
+-docletpath
+C:\Program Files (x86)\BlueJ\lib\bjdoclet.jar
+-doclet
+bluej.doclet.doclets.formats.html.HtmlDoclet
+F:\SEM1\OOP\PER\PSStoinh\Bicycle.java
+<---- end of javadoc command ---->
+Loading source file F:\SEM1\OOP\PER\PSStoinh\Bicycle.java...
+Constructing Javadoc information...
+Standard Doclet version 1.8.0_101
+Building tree for all the packages and classes...
+Generating F:\SEM1\OOP\PER\PSStoinh\doc\Bicycle.html...
+F:\SEM1\OOP\PER\PSStoinh\Bicycle.java:37: warning - @param argument "y" is not a parameter name.
+Generating F:\SEM1\OOP\PER\PSStoinh\doc\package-frame.html...
+Generating F:\SEM1\OOP\PER\PSStoinh\doc\package-summary.html...
+Generating F:\SEM1\OOP\PER\PSStoinh\doc\constant-values.html...
+Building index for all the packages and classes...
+Building index for all classes...
+Generating F:\SEM1\OOP\PER\PSStoinh\doc\allclasses-frame.html...
+Generating F:\SEM1\OOP\PER\PSStoinh\doc\allclasses-noframe.html...
+Generating F:\SEM1\OOP\PER\PSStoinh\doc\index.html...
+Generating F:\SEM1\OOP\PER\PSStoinh\doc\stylesheet.css...
+1 warning

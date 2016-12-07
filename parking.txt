@@ -1,0 +1,7 @@
+SpotId,HourlyRate,Occupied,ArrivalTime,VehicleType,Owner,ArrivalTime,ChargedRate,RegNum
+p1,10.0,false,-,-,-,-,-,-
+p2,20.0,false,-,-,-,-,-,-
+p3,30.0,false,-,-,-,-,-,-
+p4,40.0,true,2016-09-23T20:46:08.108,B,gdev,2016-09-23T20:45:57.630,0.0,-
+p5,11.0,false,-,-,-,-,-,-
+p6,88.0,false,-,-,-,-,-,-

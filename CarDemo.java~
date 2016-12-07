@@ -1,0 +1,53 @@
+
+/**
+ * Write a description of class Car here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.time.format.DateTimeFormatter;
+public class CarDemo
+{
+    // instance variables - replace the example below with your own
+    private String registrationNumber;
+    private String owner;
+    private LocalDateTime arrival;
+    private LocalDateTime depart;
+    private double rateToBeCharged;
+    DateTimeFormatter formatter;
+    /**
+     * Constructor for objects of class Car
+     */
+    public CarDemo(String regNum, String ownerName)
+    {
+        // initialise instance variables
+        registrationNumber = regNum;
+        owner = ownerName;
+        arrival = LocalDateTime.now();
+        depart = LocalDateTime.now(ZoneId.of("Asia/Kolkata"));
+         formatter = DateTimeFormatter.ofPattern("dd-L-yyyy");
+         
+    }
+
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  y   a sample parameter for a method
+     * @return     the sum of x and y 
+     */
+    public void demo()
+    {
+        // put your code here
+        
+        System.out.println(registrationNumber + "\n" + owner + "\n" + arrival + "\n" + "minutes:" + depart.until(arrival,ChronoUnit.MINUTES) + "\n" + "formatted time:"+ arrival.format(formatter)+"\n"+arrival.getMonth().toString().substring(0, 1).toUpperCase() + arrival.getMonth().toString().substring(1).toLowerCase());
+       
+    }
+    public static void main(String[] args)
+    {
+        CarDemo c = new CarDemo("bca123","gurdevSingh");
+        c.demo();
+    }
+}

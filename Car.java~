@@ -1,0 +1,66 @@
+
+/**
+ * Write a description of class Bicycle here.
+ * 
+ * @author Gurdev Singh 
+ * @version 1.4
+ */
+public class Car extends Vehicle
+{
+    
+    private String registrationNumber;
+    /**
+     * Constructor for objects of class Car
+     * @param regNum car's registration number
+     * @param ownerName name of the car owner
+     */
+    public Car(String regNum, String ownerName)
+    {
+        // initialise instance variables
+        super(ownerName);
+        registrationNumber = regNum ; 
+    }
+    public Car(String myData)
+    {
+        super((myData.split(","))[5].trim(),(myData.split(","))[6].trim(),Double.parseDouble((myData.split(","))[7].trim()));
+        registrationNumber = (myData.split(","))[8].trim();
+        
+    }
+
+    /**
+     * Gives the rate to be charged for parking the Vehicle 
+     * 
+     * @return     rate to be charged
+     */
+    public double getFee()
+    {
+        return rateToBeCharged/2 * ((getTimeIn()/30)+1); 
+    }
+    
+    /**
+     * Gives the registration number of the Vehicle object
+     * 
+     * @return     registration number of the Vehicle object 
+     */
+    public String getRegistrationNumber()
+    {
+        // put your code here
+        return registrationNumber;
+    }
+    
+    public String saveData()
+    {
+        return "C"+","+getOwner()+","+getArrivalTime()+","+getChargedRate()+","+registrationNumber;
+    }
+    
+    /**
+     * Gives the details of the Vehicle object
+     * 
+     * @return     Vehicle details 
+     */
+    public String toString()
+    {
+     return "***********\n Registration # : "+registrationNumber+super.toString();   
+    }
+   
+}

@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=ownerName
+comment0.target=Bicycle(java.lang.String)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Bicycle\r\n\ @param\ ownerName\ name\ of\ the\ bicycle\ owner\r\n
+comment1.params=myData\ readnCreate
+comment1.target=Bicycle(java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=double\ getFee()
+comment2.text=\r\n\ Gives\ the\ total\ fee\ to\ be\ charged\ for\ parking\ the\ Vehicle\ \ \ \ \ \ *\ \r\n\ @return\ \ \ \ \ rate\ to\ be\ charged\r\n
+comment3.params=
+comment3.target=java.lang.String\ saveData()
+comment3.text=\r\n\ Gives\ all\ the\ data\ about\ the\ vehicle\r\n\ \r\n\ @returns\ comma\ separated\ string\ containing\ the\ vehicle\ data\r\n
+comment4.params=
+comment4.target=java.lang.String\ toString()
+comment4.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \r\n\ @param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ \ the\ sum\ of\ x\ and\ y\ \r\n
+numComments=5

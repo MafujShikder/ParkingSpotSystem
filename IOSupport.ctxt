@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=display
+comment0.target=java.lang.String\ getString(java.lang.String)
+comment0.text=\r\n\ Accepts\ string\ from\ user\ \r\n\ \r\n\ @param\ \ display\ displays\ statement\ asking\ for\ string\ input\r\n\ @return\ string\ accepted\ from\ user\ \r\n
+comment1.params=display
+comment1.target=double\ getDouble(java.lang.String)
+comment1.text=\r\n\ Accepts\ double\ from\ user\ \r\n\ \r\n\ @param\ \ display\ displays\ statement\ asking\ for\ double\ input\r\n\ @return\ double\ accepted\ from\ user\ \r\n
+comment2.params=text
+comment2.target=void\ printIt(java.lang.String)
+comment2.text=\r\n\ Displays\ string\ to\ user\r\n\ \r\n\ @param\ \ text\ displays\ statement\ to\ user\ \r\n\r\n
+comment3.params=fileName\ data
+comment3.target=void\ saveArrData(java.lang.String,\ java.util.ArrayList)
+comment3.text=\r\n\ writes\ the\ spot\ data\ to\ a\ file\r\n\ \r\n\ @param\ fileName\ name\ of\ the\ file\ to\ store\ data\ to\ \r\n\ @param\ data\ the\ actual\ spot\ data\ to\ write\ to\ the\ file\r\n\ @throws\ IOException\r\n
+comment4.params=fileName
+comment4.target=java.util.ArrayList\ readData(java.lang.String)
+comment4.text=\r\n\ reads\ the\ spot\ data\ from\ the\ file\ specified\r\n\ \r\n\ @param\ fileName\ name\ of\ the\ file\ to\ retreive\ data\ from\ \r\n\ @returns\ an\ arraylist\ of\ type\ sting\ containing\ the\ data\ retrieved\ from\ the\ file\ \r\n
+numComments=5
